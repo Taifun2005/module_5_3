@@ -9,14 +9,17 @@ class House:
                 print(i)
         else:
             print("Такого этажа не существует")
+
     def __len__(self):
         return self.number_of_floors
 
-    def __str__(self):
-        return f"Название: {self.name}, кол-во этажей: {self.number_of_floors}"
+
 
     def __eq__(self, other):
-        return self.number_of_floors == other.number_of_floors
+        if isinstance(other, int):
+            return self.number_of_floors == other
+        else:
+            return self.number_of_floors == other.number_of_floors
 
     def __lt__(self, other):
         return self.number_of_floors < other.number_of_floors
@@ -40,9 +43,11 @@ class House:
         return self.number_of_floors + value
 
     def __aidd__(self, value):
-        return self.number_of_floors + value
-
-
+        self.number_of_floors + value
+        strr()
+        # return f"Название: {self.name}, кол-во этажей: {self.number_of_floors + value}"
+    def __str__(self):
+        return f"Название: {self.name}, кол-во этажей: {self.number_of_floors}"
 
 
 h1 = House('ЖК Эльбрус', 10)
@@ -55,17 +60,16 @@ print(h1 == h2) # __eq__
 
 h1 = h1 + 10 # __add__
 print(h1)
-print(type(h2))
 print(h1 == h2)
 
-# h1 += 10 # __iadd__
-# print(h1)
-#
-# h2 = 10 + h2 # __radd__
-# print(h2)
-#
-# print(h1 > h2) # __gt__
-# print(h1 >= h2) # __ge__
-# print(h1 < h2) # __lt__
-# print(h1 <= h2) # __le__
-# print(h1 != h2) # __ne__
+h1 += 10 # __iadd__
+print(h1)
+
+h2 = 10 + h2 # __radd__
+print(h2)
+
+print(h1 > h2) # __gt__
+print(h1 >= h2) # __ge__
+print(h1 < h2) # __lt__
+print(h1 <= h2) # __le__
+print(h1 != h2) # __ne__
