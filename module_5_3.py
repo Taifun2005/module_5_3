@@ -37,11 +37,11 @@ class House:
         return self.number_of_floors != other.number_of_floors
 
     def __add__(self, value):
-        # return self.number_of_floors + value
+        # self.number_of_floors + value
         if isinstance(value, int):
-            return self.number_of_floors + value
-
-        if isinstance(other, House):
+            self.number_of_floors += value
+            return self
+        if isinstance(value, House):
             return self.number_of_floors + value.number_of_floors
         else:
             return False
