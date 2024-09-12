@@ -41,7 +41,7 @@ class House:
             self.number_of_floors += value
             return self
         if isinstance(value, House):
-            self.number_of_floors += value
+            self.number_of_floors += value.number_of_floors
             return self
         else:
             return False
