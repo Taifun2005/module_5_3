@@ -46,11 +46,11 @@ class House:
         else:
             return False
     def __radd__(self, value):
-        return self.number_of_floors + value
+        return self.__add__(value)
 
     def __aidd__(self, value):
-        self.number_of_floors + value
-        # return f"Название: {self.name}, кол-во этажей: {self.number_of_floors + value}"
+        return self.__add__(value)
+
     def __str__(self):
         return f"Название: {self.name}, кол-во этажей: {self.number_of_floors}"
 
